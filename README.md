@@ -24,8 +24,11 @@ Una vez que el código ha sido modificado al ejecutarlo ahora se debe estar crea
 El ultimo paso es abrir plotjuggler mediante el comando: 
 		Rosrun plotjuggler plotjuggler. 
 Para la graficación de variables se deberá iniciar el graficador mediante el botón start, esto desplegara la ventana con los tópicos disponibles, aquí se seleccionan los valores que se desean graficar, en nuestro caso el valor mas importante para verificar el funcionamiento del controlador el valor del error, y también la posición en x, theta y la velocidad lineal en x. Se seleccionarán estos tópicos en la ventana y se dará en OK.
+![image](https://github.com/alfuc55/Lab4/assets/110939965/5bacb779-4f5a-4812-bd40-091ca54131e1)
+
 Ahora para una mejor presentación de los resultados se dividirá verticalmente la ventana y se arrastraran las variables deseadas para que se grafiquen. 
 Ahora al ingresar las coordenadas deseadas para la tortuga plotjuggler deberá graficar en tiempo real las variables asignadas. 
 
+![image](https://github.com/alfuc55/Lab4/assets/110939965/c1eb71a8-116f-42ab-969d-29bb5219664a)
 
 
