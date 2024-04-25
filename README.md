@@ -1,6 +1,57 @@
 # Lab4
-Plot Juggler y URDF
+URFD y Plot Juggler 
+
+Reporte del Laboratorio #4 de LRT4012
+
+165096 Diego de Jesús Gutiérrez Reyes
+167464 Aldo Fuentes Cruz
+
 # Introduccion
+
+## URDF
+El formato Unificado de Descripción de Robot (Unified Robot Description Format), se trata de un formato XML empleada en la representación del modelo de un robot, es usualmente empleados en herramientas de sistemas operativos de robots, como es el caso de ROS o Gazebo. El modelo del robot se púede crear gracias a que se incluyen enlaces y movimientos de articulaciones.
+
+Dentro del código XML, cada elemento "Link" describe un cuerpo rígido en cuanto a inercia, geometría visual y forma de colisión se refiere, por su parte los elementos "Joint" definen las propiedades cinemáticas y dinámicas, así como los limites de cada uno de los eslabones.
+
+Para cada Link se requiere de la configuración de 3 bloques principales: inertial, visual y colision:
+
+Para inertial se emplean los siguientes comandos:
+- origin: que define la posición del sistema de referencia inercial.
+- mass: que define la masa total del cuerpo.
+- inertia: que crea la matriz de inercia medida en el centro de la masa del cuerpo, se define en 6 elementos.
+
+Para la sección visual, se tiene:
+- origin: que proporciona el origen del sistema de referencia visual.
+- geometry: que define la forma visual del cuerpo, permitiendo la definición de la posición mediante "X Y Z" y de la orientación mediante "R P Y".
+- material: se le asigna un color en formato RGB.
+
+Finalemnte, para el bloque colision, se tienen los comandos:
+- origin: que es el origenm del sistema de referencia visual.
+- geometry: que da el aspecto de la forma visual del cuerpo, pudiedo ser cuadrado, esférico, cilíndrico, entre otros.
+
+Por su parte, para las articulaciones, primero es importante definir el tipo de articulación, estas peuden ser:
+- Revolute: que poseen un grado de libertad en torno a un eje.
+- Fixed: articulación fija que no posee grados de libertad.
+- Continuos: articulación similar a revolute, pero sin límites de rango de movimiento.
+- Prismatic: posee un grado de libertad de desplazamiento linear sobre un eje.
+- Planar: articulación con dos grados de libertad que permite el movimiento en un plano perpendicular.
+- Floating: movimiento totalmente libre que incluye 6 rangos de libertad.
+
+Finalemnte, algunos de los comandos empleados en las articulaciones son:
+- origin: que indica la transformada desde el eslabón del padre con el eslabón del hijo.
+- parent: posee el nombre del eslabón padre al que está unido el joint.
+- child: posee el nombre del eslabón hijo al que está unido el joint.
+- axis: representa el eje de giro o traslación de la articulación.
+- dynamic: propiedades físicas de la articulación, permite especificar los valores de fricción y amortiguación.
+
+## Plot Juggler 
+
+Se trata de una herramienta rápida, intuiiva y extensible de visualización, es perfecto para la visualización de registros, datos fuera de línea y tiempo real, y posee un uso múltiples campos de investigación y análisis, destacando sobretodo en rbótica, concretamente en áreas de vehículos y drones; ciencia de datos y automatización.
+
+Posee acceso a múltiples fuentes de datos, como lo son ROS y ROS2, PX4 o mQTT, el uso de la herramienta en este laboratorio se orienta exclusivamente en ROS, para el análisis de distintos robots.
+
+![image](https://github.com/alfuc55/Lab4/assets/132300202/a70dcad2-824d-43c5-8585-344d4f7367ae)
+
 
 # Desarrollo 
 ## URDF
