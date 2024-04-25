@@ -29,7 +29,7 @@ Finalemnte, para el bloque colision, se tienen los comandos:
 - origin: que es el origenm del sistema de referencia visual.
 - geometry: que da el aspecto de la forma visual del cuerpo, pudiedo ser cuadrado, esférico, cilíndrico, entre otros.
 
-Por su parte, para las articulaciones, primero es importante definir el tipo de articulación, estas peuden ser:
+Por su parte, para las Joints, primero es importante definir el tipo de articulación, estas peuden ser:
 - Revolute: que poseen un grado de libertad en torno a un eje.
 - Fixed: articulación fija que no posee grados de libertad.
 - Continuos: articulación similar a revolute, pero sin límites de rango de movimiento.
@@ -48,13 +48,110 @@ Finalemnte, algunos de los comandos empleados en las articulaciones son:
 
 Se trata de una herramienta rápida, intuiiva y extensible de visualización, es perfecto para la visualización de registros, datos fuera de línea y tiempo real, y posee un uso múltiples campos de investigación y análisis, destacando sobretodo en rbótica, concretamente en áreas de vehículos y drones; ciencia de datos y automatización.
 
-Posee acceso a múltiples fuentes de datos, como lo son ROS y ROS2, PX4 o mQTT, el uso de la herramienta en este laboratorio se orienta exclusivamente en ROS, para el análisis de distintos robots.
+Posee acceso a múltiples fuentes de datos, como lo son ROS y ROS2, PX4 o mQTT, el uso de la herramienta en este laboratorio se orienta exclusivamente en ROS, para el análisis de distintos robots. El menú de Plot Jagger se muestra en la sigueitne figura, adicionalemnte se muestra la graficación de ciertos parámetros.
 
 ![image](https://github.com/alfuc55/Lab4/assets/132300202/a70dcad2-824d-43c5-8585-344d4f7367ae)
 
 
 # Desarrollo 
 ## URDF
+
+Para la creación de un robot caertesiano se emplea el sitio web "My Model Robot", el cual permite, mediante código XML, la generación de un modelo de un robot, al configurar Joints y Links, el robot propuesto se trata de un brazo robótico con movimiento en los 3 ejes, para ello se crea una base y 3 eslabones, cada uno permitiendo el movimiento en uno de los ejes X, Y y Z, el código del robot es el siguiente:
+
+
+
+<robot name="LAB4">
+
+	<!-- * * * Link Definitions * * * -->
+
+ 	<link name="base">
+		<visual>
+		    <origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<cylinder radius="0.2" length="0.4"/>
+			</geometry>
+			<material name="black1">
+	       		<color rgba="0.2 0.2 0.2 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+
+
+<link name="brazo1">
+		<visual>
+		    <origin xyz="0 0.0 0.35" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.1 0.1 0.8"/>
+			</geometry>
+			<material name="Cyan2">
+	       		<color rgba="0 0.7 0.7 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+<link name="brazo2">
+		<visual>
+		    <origin xyz="0.2 0.0 0.0" rpy="0 1.57 0"/>
+			<geometry>
+				<box size="0.1 0.1 0.4"/>
+			</geometry>
+			<material name="Cyan2">
+	       		<color rgba="0 0.7 0.7 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+
+<link name="brazo3">
+		<visual>
+		    <origin xyz="0.0 0 0.2" rpy="0 0 1.57"/>
+			<geometry>
+				<box size="0.1 0.1 0.4"/>
+			</geometry>
+			<material name="Cyan2">
+	       		<color rgba="0 0.7 0.7 1.0"/>
+	     	</material>
+		</visual>	
+	</link>
+	
+	<!-- * * * Joint Definitions * * * -->
+	
+	<joint name="articulacion1" type="revolute">
+    	<parent link="base"/>
+    	<child link="brazo1"/>
+    	<origin xyz="0 0.0 0.0" rpy="0 0 0"/>
+    	<axis xyz="0 0 1"/>
+    	<limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  	</joint>
+
+<joint name="articulacion2" type="revolute">
+    	<parent link="brazo1"/>
+    	<child link="brazo2"/>
+    	<origin xyz="0.05 0.0 0.75" rpy="55 0 0"/>
+    	<axis xyz="0 0 1"/>
+    	<limit lower="-1.57" upper="1.57" effort="0" velocity="1"/>
+  	</joint>
+
+<joint name="articulacion3" type="revolute">
+    	<parent link="brazo2"/>
+    	<child link="brazo3"/>
+    	<origin xyz="0.45 0 0.05" rpy="0 0 1.57"/>
+    	<axis xyz="0 1 0"/>
+    	<limit lower="-1.57" upper="1.57" effort="0" velocity="1"/>
+  	</joint>
+	
+
+</robot>
+
+
+Mientras que los resultados de la simulación se muestran en las siguietnes imágenes:
+
+![image](https://github.com/alfuc55/Lab4/assets/132300202/19ef9588-3b59-4844-93d9-f5d922be0d74)
+![image](https://github.com/alfuc55/Lab4/assets/132300202/cb7df69d-ba34-4d3e-ae03-6390cdbfe66a)
+![image](https://github.com/alfuc55/Lab4/assets/132300202/8cb05c2a-4037-46e8-8180-a97340bd53e9)
+
+
+
 
 ## Plot Juggler 
 Con el objetivo de comprobar los resultados del controlador desarrollado e implementado en la práctica anterior, se deberá usar la herramienta plot juggler para graficar las variables y comprobar que el error es muy cercano a cero y asi verificar la precisión del controlador. 
