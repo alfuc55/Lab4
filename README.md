@@ -9,7 +9,7 @@ Reporte del Laboratorio #4 de LRT4012
 # Introduccion
 
 ## URDF
-El formato Unificado de Descripción de Robot (Unified Robot Description Format), se trata de un formato XML empleada en la representación del modelo de un robot, es usualmente empleados en herramientas de sistemas operativos de robots, como es el caso de ROS o Gazebo. El modelo del robot se púede crear gracias a que se incluyen enlaces y movimientos de articulaciones.
+El Formato Unificado de Descripción de Robot (Unified Robot Description Format), se trata de un formato XML empleada en la representación del modelo de un robot, es usualmente empleados en herramientas de sistemas operativos de robots, como es el caso de ROS o Gazebo. El modelo del robot se púede crear gracias a que se incluyen enlaces y movimientos de articulaciones.
 
 Dentro del código XML, cada elemento "Link" describe un cuerpo rígido en cuanto a inercia, geometría visual y forma de colisión se refiere, por su parte los elementos "Joint" definen las propiedades cinemáticas y dinámicas, así como los limites de cada uno de los eslabones.
 
@@ -75,6 +75,7 @@ Una vez que el código ha sido modificado al ejecutarlo ahora se debe estar crea
 El ultimo paso es abrir plotjuggler mediante el comando: 
 		Rosrun plotjuggler plotjuggler. 
 Para la graficación de variables se deberá iniciar el graficador mediante el botón start, esto desplegara la ventana con los tópicos disponibles, aquí se seleccionan los valores que se desean graficar, en nuestro caso el valor mas importante para verificar el funcionamiento del controlador el valor del error, y también la posición en x, theta y la velocidad lineal en x. Se seleccionarán estos tópicos en la ventana y se dará en OK.
+
 ![image](https://github.com/alfuc55/Lab4/assets/110939965/5bacb779-4f5a-4812-bd40-091ca54131e1)
 
 Ahora para una mejor presentación de los resultados se dividirá verticalmente la ventana y se arrastraran las variables deseadas para que se grafiquen. 
