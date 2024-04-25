@@ -4,6 +4,7 @@ URFD y Plot Juggler
 Reporte del Laboratorio #4 de LRT4012
 
 165096 Diego de Jesús Gutiérrez Reyes
+
 167464 Aldo Fuentes Cruz
 
 # Introduccion
