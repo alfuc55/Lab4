@@ -147,7 +147,9 @@ Para la creación de un robot caertesiano se emplea el sitio web "My Model Robot
 Mientras que los resultados de la simulación se muestran en las siguietnes imágenes:
 
 ![image](https://github.com/alfuc55/Lab4/assets/132300202/19ef9588-3b59-4844-93d9-f5d922be0d74)
+
 ![image](https://github.com/alfuc55/Lab4/assets/132300202/cb7df69d-ba34-4d3e-ae03-6390cdbfe66a)
+
 ![image](https://github.com/alfuc55/Lab4/assets/132300202/8cb05c2a-4037-46e8-8180-a97340bd53e9)
 
 
