@@ -63,14 +63,14 @@ Para publicar el error en un nuevo tópico de ROS son agregadas las siguientes l
 Incluir el tipo de mensaje FLOAT64 mediante la librería std_msgs.msg
         from std_msgs.msg import Float64	
 
-después, dentro de la función inicial llamada init crear el publicador, también es necesario darle un valor mayor al buffer para que almacene mas datos y la grafica sea mas extensa
+Después, dentro de la función inicial llamada init crear el publicador, también es necesario darle un valor mayor al buffer para que almacene mas datos y la grafica sea mas extensa
         self.errorPub = rospy.Publisher('/turtle1/error_topic',Float64, queue_size=1000)
 
-por último, después de la línea que publica el error en la consola: 
+Por último, después de la línea que publica el error en la consola: 
         rospy.loginfo(float(error_x))
-agregar la línea: 
+Agregar la línea: 
             self.errorPub.publish(error_x)
-que publicara el error en x en la red de ROS. 
+Que publicara el error en x en la red de ROS. 
 Una vez que el código ha sido modificado al ejecutarlo ahora se debe estar creando otro topic que manda el error en x de la tortuga.
 El ultimo paso es abrir plotjuggler mediante el comando: 
 		Rosrun plotjuggler plotjuggler. 
